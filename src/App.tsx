@@ -6,6 +6,7 @@ import PersonalDataForm from "./components/forms/PersonalData";
 import LeftDrawer from "./components/drawer/LeftDrawer";
 import OpenDrawer from "./components/drawer/OpenDrawer";
 import "./app.css";
+import Routes from "./Routes";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       {/* <EditExp /> */}
       {/* <EditEducation /> */}
       {/* <EditExtra /> */}
-      <LeftDrawer />
+      {/* <LeftDrawer /> */}
       {/* <OpenDrawer>
         <PersonalDataForm />
       </OpenDrawer> */}
+      <Routes />
     </div>
   );
 }

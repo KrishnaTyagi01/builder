@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@500&family=Roboto:wght@400&display=swap");
+
+.eduCard {
+  width: 80%;
+  background-color: #3f51b5;
+  /* height: 70px; */
+  color: #fff;
+  padding: 10px 30px;
+}
+.eduCard_upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.eduCard_left {
+  display: flex;
+  flex-direction: column;
+}
+.eduCard_left_institute {
+  font-family: "Prompt", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+.eduCard_left_major {
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+}
+.eduCard_year {
+  font-size: 1.1rem;
+  font-family: "Roboto", sans-serif;
+}
+.eduCard_lower {
+  margin-top: 20px;
+  font-size: 0.1rem;
+}
