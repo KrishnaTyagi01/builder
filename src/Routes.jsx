@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 import Education from "./components/cards/Education";
+import Experience from "./components/cards/Experience";
+import Extra from "./components/cards/Extra";
 import LeftDrawer from "./components/drawer/LeftDrawer";
 import ReorderEducation from "./components/reorders/ReorderEducation";
 
@@ -9,7 +11,7 @@ const Routes = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/test">
-          <ReorderEducation />
+          <Extra />
         </Route>
         <Route exact path="/">
           <LeftDrawer />

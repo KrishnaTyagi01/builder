@@ -5,7 +5,7 @@ import EditExtra from "./components/forms/skill/EditExtra";
 import PersonalDataForm from "./components/forms/PersonalData";
 import LeftDrawer from "./components/drawer/LeftDrawer";
 import OpenDrawer from "./components/drawer/OpenDrawer";
-import "./app.css";
+import "./styles/app.css";
 import Routes from "./Routes";
 
 function App() {

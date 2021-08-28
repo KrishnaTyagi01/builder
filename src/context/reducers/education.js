@@ -1,20 +1,23 @@
-import { UPDATE_EDUCATION_STATE } from "./../../constants/actionTypes/index";
+import {
+  UPDATE_EDUCATION_ORDER,
+  UPDATE_EDUCATION_STATE,
+} from "./../../constants/actionTypes/index";
 
 const education = (state, { type, payload }) => {
   switch (type) {
-    //   case UPDATE_EDUCATION_STATE:
-    //     return {
-    //       ...state,
-    //       major: payload.major,
-    //       institution: payload.institution,
-    //       startDate: payload.startDate,
-    //       endDate: payload.endDate,
-    //     };
-    // }
     case UPDATE_EDUCATION_STATE:
+      //  state = {...state, allEdu: [...state.allEdu, payload]}
+      //  return localStorage.setItem('educationState: ', JSON.stringify(state.allEdu)
+
       return {
         ...state,
         allEdu: [...state.allEdu, payload],
+      };
+
+    case UPDATE_EDUCATION_ORDER:
+      return {
+        ...state,
+        allEdu: payload,
       };
   }
 };

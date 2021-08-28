@@ -8,6 +8,7 @@ export interface PersonalData {
 }
 
 export interface Experience {
+  id: string;
   designation: string;
   company: string;
   experience: string;
@@ -17,6 +18,7 @@ export interface Experience {
 }
 
 export interface Education {
+  id: string;
   institution: string;
   major: string;
   startDate: string;

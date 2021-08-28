@@ -18,6 +18,7 @@ import { EducationValidation } from "../../../constants/ValidationSchema";
 import UpdateData from "../../../helpers/UpdateData";
 import { GlobalContext } from "./../../../context/reducers/provider";
 import { UPDATE_EDUCATION_STATE } from "./../../../constants/actionTypes/index";
+import { randomId } from "./../../../helpers/randomId";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +50,10 @@ const EditExp = () => {
   const state = useContext(GlobalContext);
 
   console.log("STATE: ", state["educationState"]);
+  console.log(
+    "State from localStorage: ",
+    localStorage.getItem("educationState")
+  );
 
   return (
     <div className={classes.root}>
@@ -56,7 +61,7 @@ const EditExp = () => {
         className={classes.button}
         onClick={() =>
           UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-            currentDrawer: "",
+            currentDrawer: "reorderEdu",
           })
         }
         startIcon={<KeyboardBackspaceIcon />}
@@ -65,10 +70,11 @@ const EditExp = () => {
       </Button>
 
       <Typography className={classes.heading} variant="h4">
-        Edit Education
+        Add Education
       </Typography>
       <Formik
         initialValues={{
+          id: "",
           institution: "",
           major: "",
           startDate: undefined,
@@ -86,10 +92,12 @@ const EditExp = () => {
           console.log("reached here");
           console.log("Values: ", values);
 
+          const finalValues = { ...values, id: randomId() };
+
           UpdateData(
             state["educationStateDispatch"],
             UPDATE_EDUCATION_STATE,
-            values
+            finalValues
           );
 
           setSubmitting(false);
@@ -152,7 +160,6 @@ const EditExp = () => {
                     disableToolbar
                     variant="inline"
                     InputProps={{ readOnly: true }}
-                    // format="MM/dd/yyyy"
                     margin="normal"
                     id="startDate"
                     label="Start Date"

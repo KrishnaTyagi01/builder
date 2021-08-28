@@ -16,6 +16,7 @@ import { UPDATE_DRAWER_STATE } from "../../../constants/actionTypes";
 import { GlobalContext } from "./../../../context/reducers/provider";
 import { ExtraValidation } from "../../../constants/ValidationSchema";
 import { UPDATE_EXTRA_STATE } from "./../../../constants/actionTypes/index";
+import { randomId } from "./../../../helpers/randomId";
 
 interface Values {
   title: string;
@@ -65,16 +66,19 @@ const EditExp = () => {
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     console.log("Submit clicked");
-    UpdateData(state["extraStateDispatch"], UPDATE_EXTRA_STATE, {
+
+    const data = {
+      id: randomId(),
       title: title,
       skill: skillArray,
-    });
+    };
+    UpdateData(state["extraStateDispatch"], UPDATE_EXTRA_STATE, data);
 
-    UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-      currentDrawer: "",
-    });
+    // UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
+    //   currentDrawer: "",
+    // });
   };
 
   return (
@@ -83,7 +87,7 @@ const EditExp = () => {
         className={classes.button}
         onClick={() =>
           UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-            currentDrawer: "",
+            currentDrawer: "reorderExtra",
           })
         }
         startIcon={<KeyboardBackspaceIcon />}

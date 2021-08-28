@@ -18,6 +18,9 @@ import { GlobalContext } from "./../../context/reducers/provider";
 import UpdateData from "./../../helpers/UpdateData";
 import { UPDATE_DRAWER_STATE } from "../../constants/actionTypes";
 import OpenDrawer from "./OpenDrawer";
+import ReorderEducation from "../reorders/ReorderEducation";
+import ReorderExperience from "./../reorders/ReorderExperience";
+import ReorderExtra from "./../reorders/ReorderExtra";
 
 const drawerWidth = 240;
 
@@ -64,17 +67,17 @@ const sections = [
   {
     label: "Education",
     icon: SchoolIcon,
-    toggle: "edu",
+    toggle: "reorderEdu",
   },
   {
     label: "Work Experience",
     icon: WorkIcon,
-    toggle: "exp",
+    toggle: "reorderExp",
   },
   {
     label: "Extra Information",
     icon: AssignmentIcon,
-    toggle: "extra",
+    toggle: "reorderExtra",
   },
 ];
 // drawerState [string] -> change on toggle -> change state through context -> reflected In App.ts -> click back
@@ -114,6 +117,24 @@ export default function MiniDrawer() {
       return (
         <OpenDrawer>
           <EditExtra />
+        </OpenDrawer>
+      );
+    } else if (drawerState === "reorderEdu") {
+      return (
+        <OpenDrawer>
+          <ReorderEducation />
+        </OpenDrawer>
+      );
+    } else if (drawerState === "reorderExp") {
+      return (
+        <OpenDrawer>
+          <ReorderExperience />
+        </OpenDrawer>
+      );
+    } else if (drawerState === "reorderExtra") {
+      return (
+        <OpenDrawer>
+          <ReorderExtra />
         </OpenDrawer>
       );
     }

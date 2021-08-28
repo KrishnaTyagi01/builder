@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from "react";
 import Education from "../cards/Education";
+import Experience from "../cards/Experience";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
@@ -13,6 +14,7 @@ import { GlobalContext } from "./../../context/reducers/provider";
 import {
   UPDATE_DRAWER_STATE,
   UPDATE_EDUCATION_ORDER,
+  UPDATE_EXPERIENCE_ORDER,
 } from "../../constants/actionTypes";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { UPDATE_EDUCATION_STATE } from "./../../constants/actionTypes/index";
@@ -42,44 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const edu = [
-  {
-    id: "1",
-    institution: "greenfields public school",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-  {
-    id: "2",
-    institution: "Inderprastha public school ",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-  {
-    id: "3",
-    institution: "Einstien public school",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-  {
-    id: "4",
-    institution: "Newton public school",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-];
-
-const ReorderEducation = ({}: Props): ReactElement => {
+const ReorderExperience = ({}: Props): ReactElement => {
   const classes = useStyles();
   const state = useContext(GlobalContext);
 
-  const [eds, setEds] = useState(state["educationState"]?.allEdu);
+  const [eds, setEds] = useState(state["experienceState"]?.allExp);
 
-  console.log("Education State: ", state["educationState"].allEdu);
+  console.log("Exp State: ", state["experienceState"]?.allExp);
 
   const handleOnDragEnd = (result) => {
     console.log(result);
@@ -118,11 +89,11 @@ const ReorderEducation = ({}: Props): ReactElement => {
             startIcon={<AddIcon />}
             onClick={() =>
               UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-                currentDrawer: "edu",
+                currentDrawer: "exp",
               })
             }
           >
-            Add Education
+            Add Experience
           </Button>
           <Button
             variant="contained"
@@ -132,8 +103,8 @@ const ReorderEducation = ({}: Props): ReactElement => {
             startIcon={<SaveIcon />}
             onClick={() => {
               UpdateData(
-                state["educationStateDispatch"],
-                UPDATE_EDUCATION_ORDER,
+                state["experienceStateDispatch"],
+                UPDATE_EXPERIENCE_ORDER,
                 eds
               );
             }}
@@ -150,8 +121,18 @@ const ReorderEducation = ({}: Props): ReactElement => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {eds.map(
-                  ({ id, institution, major, startDate, endDate }, index) => {
+                {eds?.map(
+                  (
+                    {
+                      id,
+                      designation,
+                      company,
+                      description,
+                      startDate,
+                      endDate,
+                    },
+                    index
+                  ) => {
                     return (
                       <Draggable key={id} draggableId={id} index={index}>
                         {(provided) => (
@@ -161,16 +142,13 @@ const ReorderEducation = ({}: Props): ReactElement => {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                           >
-                            <Education
-                              institution={institution}
-                              major={major}
+                            <Experience
+                              designation={designation}
+                              company={company}
+                              description={description}
                               startDate={startDate}
                               endDate={endDate}
                             />
-
-                            {/* <span>
-                              {institution}- {major}
-                            </span> */}
                           </div>
                         )}
                       </Draggable>
@@ -187,4 +165,4 @@ const ReorderEducation = ({}: Props): ReactElement => {
   );
 };
 
-export default ReorderEducation;
+export default ReorderExperience;

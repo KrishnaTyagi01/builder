@@ -1,4 +1,7 @@
-import { UPDATE_EXTRA_STATE } from "./../../constants/actionTypes/index";
+import {
+  UPDATE_EXTRA_ORDER,
+  UPDATE_EXTRA_STATE,
+} from "./../../constants/actionTypes/index";
 
 const extra = (state, { type, payload }) => {
   console.log("reached the extra reducer");
@@ -15,6 +18,12 @@ const extra = (state, { type, payload }) => {
       return {
         ...state,
         allExtra: [...state.allExtra, payload],
+      };
+
+    case UPDATE_EXTRA_ORDER:
+      return {
+        ...state,
+        allExtra: payload,
       };
   }
 };

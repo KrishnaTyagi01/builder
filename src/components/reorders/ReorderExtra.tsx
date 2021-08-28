@@ -13,9 +13,11 @@ import { GlobalContext } from "./../../context/reducers/provider";
 import {
   UPDATE_DRAWER_STATE,
   UPDATE_EDUCATION_ORDER,
+  UPDATE_EXTRA_ORDER,
 } from "../../constants/actionTypes";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { UPDATE_EDUCATION_STATE } from "./../../constants/actionTypes/index";
+import Extra from "./../cards/Extra";
 
 interface Props {}
 
@@ -42,44 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const edu = [
-  {
-    id: "1",
-    institution: "greenfields public school",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-  {
-    id: "2",
-    institution: "Inderprastha public school ",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-  {
-    id: "3",
-    institution: "Einstien public school",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-  {
-    id: "4",
-    institution: "Newton public school",
-    major: "science",
-    startDate: "may 2019",
-    endDate: "may 2020",
-  },
-];
-
 const ReorderEducation = ({}: Props): ReactElement => {
   const classes = useStyles();
   const state = useContext(GlobalContext);
 
-  const [eds, setEds] = useState(state["educationState"]?.allEdu);
+  const [eds, setEds] = useState(state["extraState"]?.allExtra);
 
-  console.log("Education State: ", state["educationState"].allEdu);
+  console.log("Education State: ", state["extraState"].allExtra);
 
   const handleOnDragEnd = (result) => {
     console.log(result);
@@ -118,11 +89,11 @@ const ReorderEducation = ({}: Props): ReactElement => {
             startIcon={<AddIcon />}
             onClick={() =>
               UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-                currentDrawer: "edu",
+                currentDrawer: "extra",
               })
             }
           >
-            Add Education
+            Add Another Field
           </Button>
           <Button
             variant="contained"
@@ -131,11 +102,7 @@ const ReorderEducation = ({}: Props): ReactElement => {
             className={classes.button}
             startIcon={<SaveIcon />}
             onClick={() => {
-              UpdateData(
-                state["educationStateDispatch"],
-                UPDATE_EDUCATION_ORDER,
-                eds
-              );
+              UpdateData(state["extraStateDispatch"], UPDATE_EXTRA_ORDER, eds);
             }}
           >
             Save Order
@@ -150,33 +117,26 @@ const ReorderEducation = ({}: Props): ReactElement => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {eds.map(
-                  ({ id, institution, major, startDate, endDate }, index) => {
-                    return (
-                      <Draggable key={id} draggableId={id} index={index}>
-                        {(provided) => (
-                          <div
-                            className="reorder_card"
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            <Education
-                              institution={institution}
-                              major={major}
-                              startDate={startDate}
-                              endDate={endDate}
-                            />
+                {eds?.map(({ id, title, skill }, index) => {
+                  return (
+                    <Draggable key={id} draggableId={id} index={index}>
+                      {(provided) => (
+                        <div
+                          className="reorder_card"
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <Extra title={title} skills={skill} />
 
-                            {/* <span>
+                          {/* <span>
                               {institution}- {major}
                             </span> */}
-                          </div>
-                        )}
-                      </Draggable>
-                    );
-                  }
-                )}
+                        </div>
+                      )}
+                    </Draggable>
+                  );
+                })}
                 {provided.placeholder}
               </div>
             )}

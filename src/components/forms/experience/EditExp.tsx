@@ -20,6 +20,7 @@ import { Experience } from "../../../constants/Interfaces";
 import { ExperienceValidation } from "../../../constants/ValidationSchema";
 import UpdateData from "../../../helpers/UpdateData";
 import { GlobalContext } from "./../../../context/reducers/provider";
+import { randomId } from "./../../../helpers/randomId";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +57,7 @@ const EditExp = () => {
         className={classes.button}
         onClick={() =>
           UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-            currentDrawer: "",
+            currentDrawer: "reorderExp",
           })
         }
         startIcon={<KeyboardBackspaceIcon />}
@@ -68,6 +69,7 @@ const EditExp = () => {
       </Typography>
       <Formik
         initialValues={{
+          id: "",
           designation: "",
           company: "",
           experience: "",
@@ -80,17 +82,19 @@ const EditExp = () => {
         validateOnMount={false}
         validationSchema={ExperienceValidation}
         // validator={() => ({})}
-        onSubmit={async (
+        onSubmit={(
           values: Experience,
           { setSubmitting }: FormikHelpers<Experience>
         ) => {
           console.log("reached here");
           console.log("Values: ", values);
 
-          await UpdateData(
+          const finalValues = { ...values, id: randomId() };
+
+          UpdateData(
             state["experienceStateDispatch"],
             UPDATE_EXPERIENCE_STATE,
-            values
+            finalValues
           );
 
           setSubmitting(false);
