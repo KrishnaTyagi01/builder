@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EditExp = () => {
+const EditExtra = () => {
   const classes = useStyles();
   const [title, setTitle] = useState("");
   const [skillName, setSkillName] = useState("");
@@ -149,4 +149,4 @@ const EditExp = () => {
   );
 };
 
-export default EditExp;
+export default EditExtra;

@@ -65,7 +65,7 @@ const EditExp = () => {
         <span style={{ fontSize: "0.8rem", marginRight: "12px" }}>Back</span>
       </Button>
       <Typography className={classes.heading} variant="h4">
-        Edit Experience
+        Add Experience
       </Typography>
       <Formik
         initialValues={{

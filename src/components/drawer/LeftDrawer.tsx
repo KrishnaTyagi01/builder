@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@material-ui/core";
+import { Button, Tooltip, Typography } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -21,12 +21,16 @@ import OpenDrawer from "./OpenDrawer";
 import ReorderEducation from "../reorders/ReorderEducation";
 import ReorderExperience from "./../reorders/ReorderExperience";
 import ReorderExtra from "./../reorders/ReorderExtra";
+import Template from "../templates/Template";
+import { DragDropContext } from "react-beautiful-dnd";
+import Backdrop from "@material-ui/core/Backdrop";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    height: "100vh",
   },
   drawer: {
     width: drawerWidth,
@@ -51,10 +55,22 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
+  toolbar: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+  },
   //
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: "#fff",
   },
 }));
 
@@ -95,6 +111,9 @@ export default function MiniDrawer() {
   console.log("Drawer State: ", state["drawerState"]);
 
   const leftList = () => {
+    if (drawerState === "") {
+      return null;
+    }
     if (drawerState === "personal") {
       return (
         <OpenDrawer>
@@ -142,63 +161,72 @@ export default function MiniDrawer() {
 
   return (
     <div className={classes.root}>
-      {drawerState === "" ? (
-        <Drawer
-          variant="permanent"
-          className={clsx(classes.drawer, {
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          })}
-          classes={{
-            paper: clsx({
-              [classes.drawerOpen]: open,
-              [classes.drawerClose]: !open,
-            }),
-          }}
-          style={{ backgroundColor: "black" }}
-        >
-          <List
+      {/* {drawerState === "" ? ( */}
+
+      <List
+        style={{
+          backgroundColor: "#757de8",
+          height: "100%",
+          paddingTop: "10rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {sections.map((sec, index) => (
+          <ListItem
+            button
+            key={index}
             style={{
-              backgroundColor: "#757de8",
-              height: "100%",
-              paddingTop: "10rem",
+              paddingTop: "15px",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {sections.map((sec, index) => (
-              <ListItem
-                button
-                key={index}
-                style={{
-                  paddingTop: "15px",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+            <Tooltip title={sec.label} arrow>
+              <Button
+                onClick={() =>
+                  UpdateData(
+                    state["drawerStateDispatch"],
+                    UPDATE_DRAWER_STATE,
+                    { currentDrawer: sec.toggle }
+                  )
+                }
               >
-                <Tooltip title={sec.label} arrow>
-                  <Button
-                    onClick={() =>
-                      UpdateData(
-                        state["drawerStateDispatch"],
-                        UPDATE_DRAWER_STATE,
-                        { currentDrawer: sec.toggle }
-                      )
-                    }
-                  >
-                    <sec.icon style={{ color: "white" }} />
-                  </Button>
-                </Tooltip>
+                <sec.icon style={{ color: "white" }} />
+              </Button>
+            </Tooltip>
 
-                {/* <ListItemText primary={text} /> */}
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
-      ) : (
+            {/* <ListItemText primary={text} /> */}
+          </ListItem>
+        ))}
+      </List>
+      <Drawer variant="permanent" style={{ backgroundColor: "black" }}>
+        {leftList()}
+      </Drawer>
+
+      <main
+        className={classes.content}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          zIndex: -1,
+          marginTop: 100,
+        }}
+      >
+        <div className={classes.toolbar} style={{ width: "70%" }}>
+          <Template />
+        </div>
+
+        <Backdrop
+          className={classes.backdrop}
+          open={drawerState === "" ? false : true}
+        ></Backdrop>
+      </main>
+
+      {/* ) : (
         leftList()
-      )}
+      )} */}
       {/* {drawerState === "" ? null : leftList()} */}
     </div>
   );

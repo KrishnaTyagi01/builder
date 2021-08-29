@@ -5,13 +5,13 @@ import Experience from "./components/cards/Experience";
 import Extra from "./components/cards/Extra";
 import LeftDrawer from "./components/drawer/LeftDrawer";
 import ReorderEducation from "./components/reorders/ReorderEducation";
-
+import Template from "./components/templates/Template";
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/test">
-          <Extra />
+          <Template />
         </Route>
         <Route exact path="/">
           <LeftDrawer />
