@@ -30,7 +30,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    height: "100vh",
+    // height: "100vh",
   },
   drawer: {
     width: drawerWidth,
@@ -166,7 +166,7 @@ export default function MiniDrawer() {
       <List
         style={{
           backgroundColor: "#757de8",
-          height: "100%",
+          height: "100vh",
           paddingTop: "10rem",
           display: "flex",
           flexDirection: "column",
@@ -211,7 +211,7 @@ export default function MiniDrawer() {
           display: "flex",
           justifyContent: "center",
           zIndex: -1,
-          marginTop: 100,
+          marginTop: 20,
         }}
       >
         <div className={classes.toolbar} style={{ width: "70%" }}>

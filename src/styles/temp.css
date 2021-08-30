@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+
 .temp {
   background-color: white;
   width: 100%;
@@ -10,68 +11,84 @@
   padding: 20px;
   justify-content: space-around;
   border: 1px dotted grey;
+  min-height: 100vh;
 }
 .hr_dashed {
   border-top: 1px dashed grey;
 }
+
 .temp_top {
   padding-bottom: 50px;
 }
+
 .temp_summary,
 .temp_exp {
   padding-bottom: 30px;
 }
-/* .temp_exp,
-.temp_edu {
-  padding-bottom: 30px;
-} */
 .temp_exp_inner {
   display: flex;
   justify-content: space-between;
+  padding-top: 50px;
 }
 .temp_exp_year {
   padding-left: 30px;
+  font-family: "Oswald", sans-serif;
+  padding-right: 10px;
 }
 .temp_summary_content {
   font-family: "Montserrat", sans-serif;
+  word-wrap: break-word;
+  width: 90%;
+  padding-top: 20px;
 }
+
 .temp_exp_designation {
   font-family: "Staatliches", cursive;
 
   font-size: 1.4rem;
   padding-bottom: 1px;
 }
+
 .temp_exp_company {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
 }
+
 .temp_exp_description {
   padding-top: 15px;
   font-family: "Montserrat", sans-serif;
 }
-.temp_exp_year {
-  font-family: "Oswald", sans-serif;
-}
+
 .temp_head {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
 }
+
 .temp_personal {
   display: flex;
   flex-direction: column;
   margin-bottom: "150px";
   padding-left: 10px;
 }
+
 .temp_name {
   font-family: "Roboto", sans-serif;
 }
+
 .temp_designation {
   font-family: "Montserrat", sans-serif;
 
   /* font-weight: 200; */
 }
+
 .temp_edu_inner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.temp_exp_inner {
   display: flex;
   justify-content: space-between;
 }
@@ -87,10 +104,12 @@
   font-family: "Oswald", sans-serif;
   font-weight: 300;
 }
+
 .temp_edu_year {
   font-family: "Oswald", sans-serif;
-  padding-right: 50px;
+  padding-right: 10px;
 }
+
 .temp_personal_detail {
   font-family: "Montserrat", sans-serif;
   padding-bottom: 5px;

@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/eduCard.css";
 import Button from "@material-ui/core/Button";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { GlobalContext } from "../../context/reducers/provider";
+import { UPDATE_EDUCATION_ORDER } from "../../constants/actionTypes";
+import UpdateData from "../../helpers/UpdateData";
+// import  {HandleEduDel}  from "../../helpers/handleDel";
 
 interface Props {}
 
 const Education = (props) => {
   const [openEdit, setOpenEdit] = useState(false);
+  const state = useContext(GlobalContext);
+  const eduArray = state["educationState"]?.allEdu;
+
+  const handleDel = (id) => {
+    for (let i = 0; i < eduArray.length; i++) {
+      if (eduArray[i].id === id) {
+        eduArray.splice(i, 1);
+
+        UpdateData(
+          state["educationStateDispatch"],
+          UPDATE_EDUCATION_ORDER,
+          eduArray
+        );
+      }
+    }
+  };
 
   return (
     <div className="eduCard">
@@ -38,6 +58,7 @@ const Education = (props) => {
         <Button
           style={{ color: "#fff", fontSize: "13px" }}
           startIcon={<DeleteIcon />}
+          onClick={() => handleDel(props?.id)}
         >
           Delete
         </Button>

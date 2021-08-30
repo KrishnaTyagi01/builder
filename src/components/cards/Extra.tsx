@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/eduCard.css";
 import Button from "@material-ui/core/Button";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { GlobalContext } from "../../context/reducers/provider";
+import UpdateData from "../../helpers/UpdateData";
+import { UPDATE_EXTRA_ORDER } from "../../constants/actionTypes";
 
 interface Props {}
 
 const skills = ["react", "node", "js", "cpp"];
 
-const Extra = ({ title, skills }) => {
+const Extra = ({ title, skills, id }) => {
   const [openEdit, setOpenEdit] = useState(false);
+
+  const state = useContext(GlobalContext);
+  const extraArray = state["extraState"]?.allExtra;
+
+  const handleDel = (id) => {
+    for (let i = 0; i < extraArray.length; i++) {
+      if (extraArray[i].id === id) {
+        extraArray.splice(i, 1);
+
+        UpdateData(state["extraStateDispatch"], UPDATE_EXTRA_ORDER, extraArray);
+      }
+    }
+  };
 
   return (
     <div className="eduCard">
@@ -48,6 +64,7 @@ const Extra = ({ title, skills }) => {
         <Button
           style={{ color: "#fff", fontSize: "13px" }}
           startIcon={<DeleteIcon />}
+          onClick={() => handleDel(id)}
         >
           Delete
         </Button>

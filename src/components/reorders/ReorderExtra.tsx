@@ -127,7 +127,7 @@ const ReorderEducation = ({}: Props): ReactElement => {
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <Extra title={title} skills={skill} />
+                          <Extra title={title} skills={skill} id={id} />
 
                           {/* <span>
                               {institution}- {major}

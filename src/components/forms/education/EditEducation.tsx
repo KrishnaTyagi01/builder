@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
+    marginLeft: "1.8rem",
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -50,10 +51,6 @@ const EditExp = () => {
   const state = useContext(GlobalContext);
 
   console.log("STATE: ", state["educationState"]);
-  console.log(
-    "State from localStorage: ",
-    localStorage.getItem("educationState")
-  );
 
   return (
     <div className={classes.root}>

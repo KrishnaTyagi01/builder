@@ -23,6 +23,7 @@
 }
 
 .opendrawer {
+  padding-top: 10;
   background-color: #fff;
   animation-name: moveInLeft;
   animation-duration: 0.3s;

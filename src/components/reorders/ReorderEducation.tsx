@@ -94,97 +94,100 @@ const ReorderEducation = ({}: Props): ReactElement => {
   };
 
   return (
-    <OpenDrawer>
-      <div className="reorderEdu">
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Button
-            className={classes.button}
-            startIcon={<KeyboardBackspaceIcon />}
-            onClick={() =>
-              UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-                currentDrawer: "",
-              })
-            }
-          >
-            <span style={{ fontSize: "0.8rem", marginRight: "12px" }}>
-              Back
-            </span>
-          </Button>
+    // <OpenDrawer>
+    // <div style={{ display: "flex", justifyContent: "center" }}>
+    <div className="reorderEdu">
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Button
+          className={classes.button}
+          startIcon={<KeyboardBackspaceIcon />}
+          onClick={() =>
+            UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
+              currentDrawer: "",
+            })
+          }
+        >
+          <span style={{ fontSize: "0.8rem", marginRight: "12px" }}>Back</span>
+        </Button>
 
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            startIcon={<AddIcon />}
-            onClick={() =>
-              UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-                currentDrawer: "edu",
-              })
-            }
-          >
-            Add Education
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            className={classes.button}
-            startIcon={<SaveIcon />}
-            onClick={() => {
-              UpdateData(
-                state["educationStateDispatch"],
-                UPDATE_EDUCATION_ORDER,
-                eds
-              );
-            }}
-          >
-            Save Order
-          </Button>
-        </div>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          startIcon={<AddIcon />}
+          onClick={() =>
+            UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
+              currentDrawer: "edu",
+            })
+          }
+        >
+          Add Education
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          className={classes.button}
+          startIcon={<SaveIcon />}
+          onClick={() => {
+            UpdateData(
+              state["educationStateDispatch"],
+              UPDATE_EDUCATION_ORDER,
+              eds
+            );
+          }}
+        >
+          Save Order
+        </Button>
+      </div>
 
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <Droppable droppableId="reorder_list">
-            {(provided) => (
-              <div
-                className="reorder_list"
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-              >
-                {eds.map(
-                  ({ id, institution, major, startDate, endDate }, index) => {
-                    return (
-                      <Draggable key={id} draggableId={id} index={index}>
-                        {(provided) => (
-                          <div
-                            className="reorder_card"
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            <Education
-                              institution={institution}
-                              major={major}
-                              startDate={startDate}
-                              endDate={endDate}
-                            />
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="reorder_list">
+          {(provided) => (
+            <div
+              className="reorder_list"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {eds.map(
+                ({ id, institution, major, startDate, endDate }, index) => {
+                  return (
+                    <Draggable key={id} draggableId={id} index={index}>
+                      {(provided) => (
+                        <div
+                          className="reorder_card"
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <Education
+                            id={id}
+                            institution={institution}
+                            major={major}
+                            startDate={startDate}
+                            endDate={endDate}
+                          />
 
-                            {/* <span>
+                          {/* <span>
                               {institution}- {major}
                             </span> */}
-                          </div>
-                        )}
-                      </Draggable>
-                    );
-                  }
-                )}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </div>
-    </OpenDrawer>
+                        </div>
+                      )}
+                    </Draggable>
+                  );
+                }
+              )}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </div>
+    // </div>
   );
 };
 
+{
+  /* </OpenDrawer> */
+}
 export default ReorderEducation;
