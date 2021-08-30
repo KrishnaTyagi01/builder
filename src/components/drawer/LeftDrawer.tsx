@@ -9,7 +9,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import SchoolIcon from "@material-ui/icons/School";
 import WorkIcon from "@material-ui/icons/Work";
 import clsx from "clsx";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import PersonalDataForm from "../forms/PersonalData";
 import EditEducation from "./../forms/education/EditEducation";
 import EditExp from "./../forms/experience/EditExp";
@@ -24,6 +24,8 @@ import ReorderExtra from "./../reorders/ReorderExtra";
 import Template from "../templates/Template";
 import { DragDropContext } from "react-beautiful-dnd";
 import Backdrop from "@material-ui/core/Backdrop";
+import PrintIcon from "@material-ui/icons/Print";
+import { useReactToPrint } from "react-to-print";
 
 const drawerWidth = 240;
 
@@ -96,19 +98,21 @@ const sections = [
     toggle: "reorderExtra",
   },
 ];
-// drawerState [string] -> change on toggle -> change state through context -> reflected In App.ts -> click back
-// -> change global drawerState -> drawer closed
 
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
 
-  const [toggle, setToggle] = useState("");
-  const openD = true;
   const state = useContext(GlobalContext);
   const drawerState = state["drawerState"].currentDrawer;
+  const personalState = state["personalDataState"];
+
   console.log("Drawer State: ", state["drawerState"]);
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   const leftList = () => {
     if (drawerState === "") {
@@ -200,6 +204,23 @@ export default function MiniDrawer() {
             {/* <ListItemText primary={text} /> */}
           </ListItem>
         ))}
+
+        <ListItem
+          button
+          style={{
+            paddingTop: "15px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Tooltip title="print" arrow>
+            <Button onClick={handlePrint}>
+              <PrintIcon style={{ color: "white" }} />
+            </Button>
+          </Tooltip>
+
+          {/* <ListItemText primary={text} /> */}
+        </ListItem>
       </List>
       <Drawer variant="permanent" style={{ backgroundColor: "black" }}>
         {leftList()}
@@ -215,7 +236,7 @@ export default function MiniDrawer() {
         }}
       >
         <div className={classes.toolbar} style={{ width: "70%" }}>
-          <Template />
+          <Template ref={componentRef} personalState={personalState} />
         </div>
 
         <Backdrop

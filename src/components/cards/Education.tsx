@@ -6,7 +6,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { GlobalContext } from "../../context/reducers/provider";
 import { UPDATE_EDUCATION_ORDER } from "../../constants/actionTypes";
 import UpdateData from "../../helpers/UpdateData";
-// import  {HandleEduDel}  from "../../helpers/handleDel";
 
 interface Props {}
 
@@ -49,12 +48,6 @@ const Education = (props) => {
           overflow: "hidden",
         }}
       >
-        <Button
-          style={{ color: "#fff", fontSize: "13px", marginRight: "10px" }}
-          startIcon={<EditIcon />}
-        >
-          Edit
-        </Button>
         <Button
           style={{ color: "#fff", fontSize: "13px" }}
           startIcon={<DeleteIcon />}

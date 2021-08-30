@@ -56,12 +56,6 @@ const Extra = ({ title, skills, id }) => {
         }}
       >
         <Button
-          style={{ color: "#fff", fontSize: "13px", marginRight: "10px" }}
-          startIcon={<EditIcon />}
-        >
-          Edit
-        </Button>
-        <Button
           style={{ color: "#fff", fontSize: "13px" }}
           startIcon={<DeleteIcon />}
           onClick={() => handleDel(id)}
