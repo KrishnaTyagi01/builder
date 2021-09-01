@@ -9,8 +9,8 @@ const faqs = [
     ans: "Yes, it's completely free for everyone.",
   },
   {
-    ques: "How to Make a Resume?",
-    ans: "Just fill relevent information and click on download resume.",
+    ques: "How many resumes can we create?",
+    ans: "There is no limit on number of resumes. You can create any number of resumes one at a time.",
   },
   {
     ques: "What will be the format of downloaded resume?",

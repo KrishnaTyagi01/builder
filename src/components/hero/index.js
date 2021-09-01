@@ -20,14 +20,14 @@ const Hero = () => {
         >
           <Container className="hero_heading">
             <h1>
-              Build your professional resume in just 3 steps with
+              Build your professional resume in just 2 steps with
               <span className="hero_highlight">Buildr.</span>
             </h1>
 
-            <h4 className="hero_sub">
-              Use professional field-tested resume templates that follow the
-              exact ‘resume rules’ employers look for. Easy to use and done
-              within minutes - try now for free!
+            <h4 className="hero_sub" style={{ letterSpacing: 1 }}>
+              Create professional resume that follow the exact ‘resume rules’
+              employers look for. Easy to use and done within minutes - try now
+              for free!
             </h4>
 
             <Link to="/resume" style={{ textDecoration: "none" }}>

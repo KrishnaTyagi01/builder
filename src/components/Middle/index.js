@@ -37,10 +37,9 @@ function Middle() {
             <h1 className="middle_step">STEP 1</h1>
 
             <span className="middle_stepInfo">
-              Add your personal info and choose and edit the necessary sections.
-              You will find the relevent forms in the Sidebars. Every Sidebar
-              will open a drawer where you will have options to create, update,
-              delete, rearrange information.
+              Easily add all the necessary information in the forms given in the
+              the sidebar. You get the options to Add, Update, shuffle order and
+              delete all the sections.
             </span>
           </Paper>
         </Grid>
@@ -63,8 +62,8 @@ function Middle() {
             <h1 className="middle_step">STEP 2</h1>
 
             <span className="middle_stepInfo">
-              Export your Resume to PDF. PDF will provide you with the best and
-              most consistent visual formatting It is saved at every checkpoint
+              After filling all the Information, just click on the print button
+              to download your resume in PDF format.
             </span>
           </Paper>
         </Grid>
