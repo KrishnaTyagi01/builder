@@ -26,6 +26,8 @@ import { DragDropContext } from "react-beautiful-dnd";
 import Backdrop from "@material-ui/core/Backdrop";
 import PrintIcon from "@material-ui/icons/Print";
 import { useReactToPrint } from "react-to-print";
+import { SportsRugbySharp } from "@material-ui/icons";
+import Navbar from "../navbar";
 
 const drawerWidth = 240;
 
@@ -164,91 +166,98 @@ export default function MiniDrawer() {
   };
 
   return (
-    <div className={classes.root}>
-      {/* {drawerState === "" ? ( */}
+    <>
+      <Navbar showCreate={false} />
+      <br />
+      <br />
+      <br />
+      <div className={classes.root}>
+        {/* {drawerState === "" ? ( */}
 
-      <List
-        style={{
-          backgroundColor: "#757de8",
-          height: "100vh",
-          paddingTop: "10rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {sections.map((sec, index) => (
+        <List
+          style={{
+            backgroundColor: "#757de8",
+            minHeight: "100vh",
+            paddingTop: "10rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {sections.map((sec, index) => (
+            <ListItem
+              button
+              key={index}
+              style={{
+                paddingTop: "15px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Tooltip title={sec.label} arrow>
+                <Button
+                  onClick={() =>
+                    UpdateData(
+                      state["drawerStateDispatch"],
+                      UPDATE_DRAWER_STATE,
+                      { currentDrawer: sec.toggle }
+                    )
+                  }
+                >
+                  <sec.icon style={{ color: "white" }} />
+                </Button>
+              </Tooltip>
+
+              {/* <ListItemText primary={text} /> */}
+            </ListItem>
+          ))}
+
           <ListItem
             button
-            key={index}
             style={{
               paddingTop: "15px",
               display: "flex",
               justifyContent: "center",
             }}
           >
-            <Tooltip title={sec.label} arrow>
-              <Button
-                onClick={() =>
-                  UpdateData(
-                    state["drawerStateDispatch"],
-                    UPDATE_DRAWER_STATE,
-                    { currentDrawer: sec.toggle }
-                  )
-                }
-              >
-                <sec.icon style={{ color: "white" }} />
+            <Tooltip title="print" arrow>
+              <Button onClick={handlePrint}>
+                <PrintIcon style={{ color: "white" }} />
               </Button>
             </Tooltip>
 
             {/* <ListItemText primary={text} /> */}
           </ListItem>
-        ))}
+        </List>
+        <Drawer variant="permanent" style={{ backgroundColor: "black" }}>
+          {leftList()}
+        </Drawer>
 
-        <ListItem
-          button
+        <main
+          className={classes.content}
           style={{
-            paddingTop: "15px",
             display: "flex",
             justifyContent: "center",
+            zIndex: -1,
+            // marginTop: 20,
+            backgroundColor: "rgba(176,176,176, 0.1)",
           }}
         >
-          <Tooltip title="print" arrow>
-            <Button onClick={handlePrint}>
-              <PrintIcon style={{ color: "white" }} />
-            </Button>
-          </Tooltip>
+          <div className={classes.toolbar} style={{ width: "70%" }}>
+            <Template ref={componentRef} personalState={personalState} />
+          </div>
 
-          {/* <ListItemText primary={text} /> */}
-        </ListItem>
-      </List>
-      <Drawer variant="permanent" style={{ backgroundColor: "black" }}>
-        {leftList()}
-      </Drawer>
+          <Backdrop
+            className={classes.backdrop}
+            open={drawerState === "" ? false : true}
+          ></Backdrop>
+        </main>
 
-      <main
-        className={classes.content}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          zIndex: -1,
-          marginTop: 20,
-        }}
-      >
-        <div className={classes.toolbar} style={{ width: "70%" }}>
-          <Template ref={componentRef} personalState={personalState} />
-        </div>
-
-        <Backdrop
-          className={classes.backdrop}
-          open={drawerState === "" ? false : true}
-        ></Backdrop>
-      </main>
-
-      {/* ) : (
+        {/* ) : (
         leftList()
       )} */}
-      {/* {drawerState === "" ? null : leftList()} */}
-    </div>
+        {/* {drawerState === "" ? null : leftList()} */}
+      </div>
+    </>
   );
 }

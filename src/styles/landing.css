@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+* {
+  box-sizing: border-box;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+#logo {
+  font-family: "Righteous", cursive;
+  flex-grow: 1;
+  color: #fff;
+}
+
+.hero_highlight {
+  margin-top: -20px;
+  font-size: 3rem;
+  color: #3f51b5;
+  padding-left: 20px;
+  /* font-style: oblique; */
+}
+
+.hero_heading {
+  font-family: "Kanit", sans-serif;
+  text-transform: capitalize;
+}
+
+.hero_sub {
+  font-family: "Montserrat", sans-serif;
+  width: 90%;
+  color: gray;
+}
+
+.hero_button {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.hero_button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+#middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: rebeccapurple; */
+}
+
+.middle_head {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.middle_subHead {
+  font-family: "Kanit", sans-serif;
+  text-transform: capitalize;
+  font-size: 3rem;
+  margin-top: -2.4rem;
+  color: #00264d;
+}
+
+.middle_subHead_inner {
+  color: #3f51b5;
+}
+
+.middle_steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 60%;
+  height: 350px;
+}
+
+.middle_step {
+  margin-bottom: -20px;
+  font-family: "Roboto", sans-serif;
+  color: #00264d;
+}
+
+.middle_stepInfo {
+  font-family: "Montserrat", sans-serif;
+  width: 90%;
+  color: gray;
+  padding: 40px;
+}
+
+.faq_sub {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.faq_head {
+  font-family: "Kanit", sans-serif;
+  /* text-transform: capitalize; */
+  font-size: 3rem;
+  margin-top: -2rem;
+  margin-bottom: 10px;
+  color: #00264d;
+}
+.faq_head_inner {
+  color: #3f51b5;
+}
+
+.faq_para {
+  font-family: "Roboto", sans-serif;
+  width: 90%;
+  color: gray;
+  font-size: 1.2rem;
+  /* padding: 40px; */
+}
+
+#accordion {
+  background-color: rgba(176, 176, 176, 0.1);
+  /* background-color: black; */
+  font-family: "Kanit", sans-serif;
+}
+
+#accordion_head {
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+  font-weight: 1.5rem;
+}
+
+#accordion_ans {
+  font-family: "Roboto", sans-serif;
+}
+
+.github {
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 3rem;
+  border-radius: 5px;
+  margin-top: 10rem;
+}
+
+.github_head {
+  font-family: "Kanit", sans-serif;
+}
+
+.github_sub {
+  font-family: "Montserrat", sans-serif;
+  margin-top: -0.5rem;
+}
+
+.contact_sub {
+  font-family: "Kanit", sans-serif;
+  text-transform: capitalize;
+  color: #3f51b5;
+  font-size: 1.3rem;
+  margin-bottom: -1.5rem;
+}
+
+.contact_head {
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+}
+
+.contact_head_inner {
+  color: #3f51b5;
+}
+
+.contact_para {
+  width: 80%;
+  color: gray;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact_info {
+  font-family: "Kanit", sans-serif;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+
+.contact_info_email {
+  padding-left: 1rem;
+  color: #000;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contact_info_socials {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+#contact_icons {
+  height: 80px;
+  width: 80px;
+  margin-right: 2.5rem;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  /* background-color: #002984; */
+}
+
+.footer_copy {
+  /* font-family: "Kanit", sans-serif; */
+  font-family: "Roboto", sans-serif;
+  color: gray;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}

@@ -8,7 +8,7 @@ const ExpTemp = () => {
   const experienceState = state["experienceState"]?.allExp;
 
   return (
-    <div className="temp_exp">
+    <div className="temp_exp" style={{ paddingLeft: 20 }}>
       <h4 className="temp_head">Employment History</h4>
       <hr className="hr_dashed" />
 

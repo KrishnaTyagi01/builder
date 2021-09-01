@@ -98,6 +98,10 @@ const EditExp = () => {
             finalValues
           );
 
+          UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
+            currentDrawer: "reorderExp",
+          });
+
           setSubmitting(false);
         }}
       >

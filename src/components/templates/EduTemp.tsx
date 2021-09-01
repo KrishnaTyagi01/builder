@@ -8,7 +8,7 @@ const EduTemp = () => {
   const educationState = state["educationState"]?.allEdu;
 
   return (
-    <div className="temp_edu">
+    <div className="temp_edu" style={{ paddingLeft: 20 }}>
       <h4 className="temp_head">Education</h4>
       <hr className="hr_dashed" />
 

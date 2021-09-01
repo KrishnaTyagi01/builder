@@ -4,22 +4,20 @@ import Grid from "@material-ui/core/Grid";
 import ExpTemp from "./ExpTemp";
 import EduTemp from "./EduTemp";
 import ExtraTemp from "./ExtraTemp";
-import { GlobalContext } from "./../../context/reducers/provider";
-import { PersonalData } from "../../constants/Interfaces";
 
 class Template extends React.Component<any, any> {
   render() {
     return (
       <div className="temp">
         <Grid item xs={9}>
-          <div className="temp_top">
+          <div className="temp_top" style={{ paddingLeft: 20 }}>
             <h2 className="temp_name">{this.props.personalState?.name}</h2>
             <h4 className="temp_designation" style={{ marginTop: -15 }}>
               {this.props.personalState?.designation}
             </h4>
           </div>
 
-          <div className="temp_summary">
+          <div className="temp_summary" style={{ paddingLeft: 20 }}>
             <h4 className="temp_head">Professional Summary</h4>
             <hr className="hr_dashed" />
             <div className="temp_summary_content">
@@ -33,7 +31,10 @@ class Template extends React.Component<any, any> {
         </Grid>
 
         <Grid item xs={3} style={{ marginLeft: 100, marginTop: 40 }}>
-          <div className="temp_personal" style={{ marginBottom: 70 }}>
+          <div
+            className="temp_personal"
+            style={{ marginBottom: 70, paddingRight: 30 }}
+          >
             <span className="temp_personal_detail">
               {this.props.personalState?.email}
             </span>

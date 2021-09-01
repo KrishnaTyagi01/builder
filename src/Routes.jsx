@@ -6,14 +6,15 @@ import Extra from "./components/cards/Extra";
 import LeftDrawer from "./components/drawer/LeftDrawer";
 import ReorderEducation from "./components/reorders/ReorderEducation";
 import Template from "./components/templates/Template";
+import Landing from "./pages/Landing";
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/test">
-          <Template />
-        </Route>
         <Route exact path="/">
+          <Landing />
+        </Route>
+        <Route exact path="/resume">
           <LeftDrawer />
         </Route>
       </Switch>

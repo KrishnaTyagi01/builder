@@ -9,23 +9,12 @@ import Template from "./components/templates/Template";
 
 import "./styles/app.css";
 import Routes from "./Routes";
-
+import "./styles/landing.css";
 function App() {
   return (
     // style = opendrawer ? blur: none
     <div className="App" style={{ position: "relative" }}>
-      <LeftDrawer />
-      {/* <div
-          style={{
-            position: "fixed",
-            // top: "50%",
-            left: "50%",
-            width: "50%",
-            transform: `translateX(-50%)`,
-          }}
-        >
-          <Template />
-        </div> */}
+      <Routes />
     </div>
   );
 }

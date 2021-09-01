@@ -77,9 +77,9 @@ const EditExtra = () => {
     };
     UpdateData(state["extraStateDispatch"], UPDATE_EXTRA_STATE, data);
 
-    // UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
-    //   currentDrawer: "",
-    // });
+    UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
+      currentDrawer: "reorderExtra",
+    });
   };
 
   return (
