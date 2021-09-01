@@ -79,7 +79,7 @@ const PersonalDataForm = () => {
         validateOnBlur={true}
         validateOnMount={false}
         validationSchema={PersonalValidation}
-        onSubmit={async (
+        onSubmit={(
           values: PersonalData,
           { setSubmitting }: FormikHelpers<PersonalData>
         ) => {
@@ -88,11 +88,15 @@ const PersonalDataForm = () => {
           //   payload: values,
           // });
 
-          await UpdateData(
+          UpdateData(
             state["personalDataDispatch"],
             UPDATE_PERSONAL_DATA,
             values
           );
+
+          UpdateData(state["drawerStateDispatch"], UPDATE_DRAWER_STATE, {
+            currentDrawer: "",
+          });
 
           // console.log("After Dispatch: ", state["personalDataState"]);
           setSubmitting(false);

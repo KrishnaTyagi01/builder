@@ -12,7 +12,6 @@ import Routes from "./Routes";
 import "./styles/landing.css";
 function App() {
   return (
-    // style = opendrawer ? blur: none
     <div className="App" style={{ position: "relative" }}>
       <Routes />
     </div>
