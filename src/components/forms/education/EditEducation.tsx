@@ -16,8 +16,8 @@ import { UPDATE_DRAWER_STATE } from "../../../constants/actionTypes";
 import { Education } from "../../../constants/Interfaces";
 import { EducationValidation } from "../../../constants/ValidationSchema";
 import UpdateData from "../../../helpers/UpdateData";
-import { GlobalContext } from "./../../../context/reducers/provider";
 import { UPDATE_EDUCATION_STATE } from "./../../../constants/actionTypes/index";
+import { GlobalContext } from "./../../../context/reducers/provider";
 import { randomId } from "./../../../helpers/randomId";
 
 const useStyles = makeStyles((theme) => ({

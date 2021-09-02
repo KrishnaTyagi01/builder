@@ -1,21 +1,18 @@
-import React, { ReactElement, useState } from "react";
-import Education from "../cards/Education";
-import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import AddIcon from "@material-ui/icons/Add";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import SaveIcon from "@material-ui/icons/Save";
-import AddIcon from "@material-ui/icons/Add";
-import "../../styles/reorders.css";
-import OpenDrawer from "./../drawer/OpenDrawer";
-import UpdateData from "../../helpers/UpdateData";
-import { useContext } from "react";
-import { GlobalContext } from "./../../context/reducers/provider";
+import React, { ReactElement, useContext, useState } from "react";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import {
   UPDATE_DRAWER_STATE,
   UPDATE_EDUCATION_ORDER,
 } from "../../constants/actionTypes";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { UPDATE_EDUCATION_STATE } from "./../../constants/actionTypes/index";
+import UpdateData from "../../helpers/UpdateData";
+import "../../styles/reorders.css";
+import Education from "../cards/Education";
+import { GlobalContext } from "./../../context/reducers/provider";
 
 interface Props {}
 

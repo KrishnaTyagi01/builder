@@ -1,8 +1,8 @@
-import React, { ReactElement, useContext } from "react";
-import "../../styles/temp.css";
 import Grid from "@material-ui/core/Grid";
-import ExpTemp from "./ExpTemp";
+import React from "react";
+import "../../styles/temp.css";
 import EduTemp from "./EduTemp";
+import ExpTemp from "./ExpTemp";
 import ExtraTemp from "./ExtraTemp";
 
 class Template extends React.Component<any, any> {

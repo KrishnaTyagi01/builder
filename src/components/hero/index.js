@@ -1,17 +1,19 @@
-import { Button, Container, Grid } from "@material-ui/core";
-import React from "react";
-import DesignIllustration from "../../assets/design-illustration-2.svg";
-import Typography from "@material-ui/core/Typography";
+import { Button, Container, Grid, Hidden } from "@material-ui/core";
 import BuildIcon from "@material-ui/icons/Build";
-import "../../styles/landing.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import DesignIllustration from "../../assets/design-illustration-2.svg";
+import "../../styles/landing.css";
 
 const Hero = () => {
   return (
     <Container className="hero" style={{ width: "100%" }}>
       <Grid container>
         <Grid
-          sm={6}
+          lg={6}
+          md={6}
+          sm={12}
+          xs={12}
           style={{
             display: "flex",
             alignItems: "center",
@@ -44,13 +46,15 @@ const Hero = () => {
             </Link>
           </Container>
         </Grid>
-        <Grid sm={6}>
-          <img
-            src={DesignIllustration}
-            alt="Design Illustration"
-            style={{ height: 700, width: 700 }}
-          />
-        </Grid>
+        <Hidden smDown>
+          <Grid lg={6} md={6}>
+            <img
+              src={DesignIllustration}
+              alt="Design Illustration"
+              style={{ height: 700, width: 700 }}
+            />
+          </Grid>
+        </Hidden>
       </Grid>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Hidden } from "@material-ui/core";
 import React from "react";
 import SupportIcon from "../../assets/interview.svg";
 import SimpleAccordion from "./Accordion";
@@ -26,17 +26,20 @@ function Faq() {
   return (
     <Container style={{ marginTop: "10rem" }}>
       <Grid container spacing={3}>
-        <Grid
-          xs={6}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img src={SupportIcon} style={{ height: 400, width: 400 }} />
-        </Grid>
-        <Grid xs={6}>
+        <Hidden smDown>
+          <Grid
+            lg={6}
+            md={6}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img src={SupportIcon} style={{ height: 400, width: 400 }} />
+          </Grid>
+        </Hidden>
+        <Grid lg={6} md={6} sm={12} xs={12}>
           <h4 className="faq_sub">FAQs</h4>
           <h1 className="faq_head">
             Do you have

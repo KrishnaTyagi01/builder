@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
-import "../../styles/eduCard.css";
 import Button from "@material-ui/core/Button";
-import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import React, { useContext, useState } from "react";
+import { UPDATE_EXPERIENCE_ORDER } from "../../constants/actionTypes";
 import { GlobalContext } from "../../context/reducers/provider";
 import UpdateData from "../../helpers/UpdateData";
-import { UPDATE_EXPERIENCE_ORDER } from "../../constants/actionTypes";
+import "../../styles/eduCard.css";
 
 interface Props {}
 

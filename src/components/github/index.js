@@ -6,7 +6,10 @@ function Github() {
     <Container className="github">
       <Grid container spacing={3}>
         <Grid
-          xs={8}
+          lg={8}
+          md={8}
+          sm={12}
+          xs={12}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -22,7 +25,7 @@ function Github() {
           </div>
         </Grid>
 
-        <Grid xs={4}>
+        <Grid xs={4} lg={4} md={4} sm={12} xs={12}>
           <Link
             href="https://github.com/KrishnaTyagi01/builder"
             target="_blank"
@@ -34,10 +37,9 @@ function Github() {
               startIcon={<GitHubIcon />}
               className="github_button"
               style={{
-                // borderRadius: 30,
-                // padding: 20,
                 marginTop: 40,
-                width: "18rem",
+                width: "80%",
+                marginLeft: 15,
               }}
             >
               Github

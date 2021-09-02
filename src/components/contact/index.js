@@ -1,14 +1,14 @@
-import React from "react";
-import { Container, Grid, Link } from "@material-ui/core";
-import EmailImage from "../../assets/email-illustration.svg";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { Container, Grid, Hidden, Link } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import React from "react";
+import EmailImage from "../../assets/email-illustration.svg";
 function Contact() {
   return (
     <Container style={{ marginTop: 120 }}>
       <Grid container spacing={3}>
-        <Grid xs={6}>
+        <Grid lg={6} md={6} sm={12} xs={12}>
           <div>
             <h5 className="contact_sub">Contact Me</h5>
             <h1 className="contact_head">
@@ -49,13 +49,15 @@ function Contact() {
             </div>
           </div>
         </Grid>
-        <Grid xs={6}>
-          <img
-            src={EmailImage}
-            alt="Email Illustration"
-            style={{ height: 600, width: 600 }}
-          />
-        </Grid>
+        <Hidden smDown>
+          <Grid lg={6} md={6}>
+            <img
+              src={EmailImage}
+              alt="Email Illustration"
+              style={{ height: 600, width: 600 }}
+            />
+          </Grid>
+        </Hidden>
       </Grid>
     </Container>
   );

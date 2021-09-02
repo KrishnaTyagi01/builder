@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../../context/reducers/provider";
 
 interface Props {}

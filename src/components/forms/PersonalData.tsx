@@ -170,7 +170,7 @@ const PersonalDataForm = () => {
               multiline
               rows={3}
               className={classes.textField}
-              label="Career Objective"
+              label="Professional Summary"
               style={{ margin: 8 }}
               onBlur={handleBlur}
               onChange={handleChange}
